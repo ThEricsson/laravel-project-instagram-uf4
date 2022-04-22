@@ -35,20 +35,21 @@ class ImageController extends Controller{
             'descripcio' => ['required', 'string', 'max:255']
         ]);
 
-        $image_path = $request->file('avatar');
+        $image_path = $request->file('image');
 
         if($image_path){
 
-            $path = $image_path->store('users');
+            $path = $image_path->store('image');
 
             $imagepath = preg_replace('/^.+[\\\\\\/]/', '', $path);
         }
 
-        $image = Image::create([
-            'user_id' => $user->id,
-            'image_path' => $imagepath,
-            'description' => $request->descripcio,
-        ]);
+        $image = new Image;
+        $image->user_id = $user->id;
+        $image->image_path = $imagepath;
+        $image->description = $request->descripcio;
+
+        $image->save();
 
         return redirect()->route('dashboard')
                          ->with([]);
