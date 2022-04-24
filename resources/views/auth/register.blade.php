@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img style="width: 5em;" src="{{ asset('favicon.ico') }}">
             </a>
         </x-slot>
 
@@ -63,6 +63,9 @@
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
+                <x-button class="ml-3">
+                    <a href="{{route('login')}}">{{ __('Log in') }}</a>
+                </x-button>
 
                 <x-button class="ml-4">
                     {{ __('Register') }}

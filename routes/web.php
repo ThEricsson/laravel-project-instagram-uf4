@@ -16,12 +16,10 @@ use App\Http\Controllers\ImageController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard',[ImageController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/config', function () {
     return view('config');
@@ -46,5 +44,7 @@ Route::get('/updateimg', function(){
 
 Route::post('postimg', [ImageController::class, 'store'])
 ->name('postimg');
+
+Route::get('/getimageposts/{filename}', [ImageController::class, 'getImage'])->name('getimageposts');
 
 require __DIR__.'/auth.php';

@@ -427,6 +427,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 ------------------------------------------
 Custom css
 */
+.maincontent-custom {
+    margin-left: 15em;
+    margin-right: 15em;
+}
+
 .useravatar {
     width: 2.2em;
     border-radius: 50%;
@@ -435,6 +440,19 @@ Custom css
 
 #showactual {
     width: 5em;
+}
+
+.custom-card {
+    background-color: #f1f1f1;
+    margin: 2em 6em;
+    padding-top: 1em;
+}
+
+.imageavatar {
+    display: inline-block;
+    margin: 1em;
+    width: 2em;
+    border-radius: 50%;
 }
 
 /*

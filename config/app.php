@@ -1,5 +1,7 @@
 <?php
 
+use App\Helpers\FormatTime;
+use App\Providers\FormatTimeServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -177,6 +179,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //Provider que formata el tems de les imatges
+        App\Providers\FormatTimeServiceProvider::class,
+
     ],
 
     /*
@@ -191,7 +196,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'FormatTime' => App\Helpers\FormatTime::class,
     ])->toArray(),
 
 ];

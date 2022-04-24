@@ -95,6 +95,7 @@ class UserController extends Controller{
 
 
     public function getImage($filename){
+        
         $file = Storage::disk('users')->get($filename);
         
         return new Response($file,200);

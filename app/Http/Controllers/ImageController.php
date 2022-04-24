@@ -39,7 +39,7 @@ class ImageController extends Controller{
 
         if($image_path){
 
-            $path = $image_path->store('image');
+            $path = $image_path->store('images');
 
             $imagepath = preg_replace('/^.+[\\\\\\/]/', '', $path);
         }
@@ -53,6 +53,18 @@ class ImageController extends Controller{
 
         return redirect()->route('dashboard')
                          ->with([]);
+    }
+
+    public function getImage($filename){
+        $file = Storage::disk('images')->get($filename);
+        
+        return new Response($file,200);
+    }
+
+    public function index(){
+        $data = Image::orderBy('id', 'desc')->paginate(5);
+        
+        return view('dashboard',compact('data'));
     }
 
 }

@@ -43,6 +43,7 @@ class RegisteredUserController extends Controller
 
         $user = User::create([
             'role' => 'user',
+            'image' => 'default.png',
             'name' => $request->name,
             'surname' => $request->surname,
             'nick' => $request->nick,
